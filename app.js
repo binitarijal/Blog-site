@@ -1,6 +1,6 @@
 const express=require("express")
 const app=express()
-
+require("./model/index")
 //telling node to set its view engine to ejs
 
 app.set("view engine","ejs")
