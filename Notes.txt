@@ -1,0 +1,8 @@
+#npm init = package.json 
+npm init -y help to directly skip all processes
+
+#installing packages
+
+npm i express = installs express for interaction and use methos get(),post()
+npm i nodemon = '' nodemon for restart node js
+npm i ejs='' ejs for dynamic html page rendering
