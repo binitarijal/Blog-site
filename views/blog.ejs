@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .blog-container {
+            max-width: 800px;
+            height: 100vh;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+        .sub-title {
+            font-size: 20px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .description {
+            font-size: 16px;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-container">
+        <div class="title"> <%- blog.title %></div>
+        <div class="sub-title"><%- blog.subTitle %></div>
+        <div class="description">
+            <%- blog.description %> </div>
+            <button><a href="/deleteblog/<%- blog.id %>">Delete me</a></button>
+            <button><a href="/updateBlog/<%-blog.id%>">update me</a></button>
+        </div>
+</body>
+</html>

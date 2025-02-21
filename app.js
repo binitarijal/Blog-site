@@ -37,6 +37,32 @@ app.post("/addBlog",async(req,res)=>{
     res.redirect("/")
 })
 
+app.get("/blog/:id",async(req,res)=>{
+    const id=req.params.id
+const foundData   =await blogs.findByPk(id)
+    res.render("blog",{blog:foundData})
+})
+
+//deleting
+
+app.get("/deleteblog/:id",async(req,res)=>{
+    const id=req.params.id
+   await blogs.destroy({
+        where:{
+            id:id
+        }
+    })
+    res.redirect("/")
+})
+app.get("/updateBlog/:id",(req,res)=>{
+    const id=req.params.id
+    res.render("update",{id:id})
+})
+
+app.post("/updateBlog/:id",async(req,res)=>{
+   
+})
+
 const PORT=2000;
 app.listen(PORT,()=>{
     console.log(`Node js has started at port ${PORT}`)

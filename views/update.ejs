@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header styling */
+        header {
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 24px;
+        }
+
+        /* Main section styling */
+        main {
+            width: 50%;
+            margin: 30px auto;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form styling */
+        form { 
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #222;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Form Page</h1>
+    </header>
+
+    <!-- Form Section -->
+    <main>
+        <form action="/UpdateBlog/<%-id%>" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" >
+
+            <label for="subtitle">Subtitle:</label>
+            <input type="text" id="subtitle" name="subTitle">
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" ></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Website. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
