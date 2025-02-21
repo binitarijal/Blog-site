@@ -61,20 +61,16 @@
 </head>
 <body>
   <%-include("navbar")%> 
-    <div class="container">
-        <div class="card">
-            <h3>Card 1</h3>
-            <p>This is some text inside card 1.</p>
-        </div>
-        <div class="card">
-            <h3>Card 2</h3>
-            <p>This is some text inside card 2.</p>
-        </div>
-        <div class="card">
-            <h3>Card 3</h3>
-            <p>This is some text inside card 3.</p>
-        </div>
-    </div>
+    <section>
+    <% blogs.forEach((blogs)=>{ %>
+    <div class="card">
+        <h2> <%- blogs.title %></h2>
+    <h5> <%- blogs.subTitle %> </h5>
+    <p><%- blogs.description %> </p>
+        <a href="">see more</a>
+</div>
+   <% })   %> 
+    </section>
     <%-include("footer")%>
 </body>
 </html>
