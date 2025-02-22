@@ -1,10 +1,8 @@
-
-const { blogs } = require("../../model/index");
-
+const {blogs} =require("../../model/index")
 exports.homeRender=async(req,res)=>{
     //blogs table bata row nikalnu paryo ani home page lai pass garney
     const blogsTableBlog=await blogs.findAll()
-    //console.log(blogsTableBlog)
+    console.log(blogsTableBlog)
     res.render("home",{blogs:blogsTableBlog})
 }
 
