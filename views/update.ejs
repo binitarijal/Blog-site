@@ -86,13 +86,15 @@
     <main>
         <form action="/UpdateBlog/<%-id%>" method="POST">
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" >
+            <input type="text" id="title" name="title" value="<%-blog.title%>">
 
             <label for="subtitle">Subtitle:</label>
-            <input type="text" id="subtitle" name="subTitle">
+            <input type="text" id="subtitle" name="subTitle" value="<%-blog.subTitle%>" >
 
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="4" ></textarea>
+            <label for="description">description:</label>
+            <input type="text" id="description" name="description" value="<%-blog.description%>" >
+
+            
 
             <button type="submit">Submit</button>
         </form>

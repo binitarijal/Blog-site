@@ -41,11 +41,15 @@
             height: 50px;
             background-color: red;
         }
+        img{
+            width: 500px;
+            height: 500px;
+        }
     </style>
 </head>
 <body>
     <div class="blog-container">
-        <div class="title"> <%- blog.title %></div>
+        <img src="<%-blog.image%>" alt="">        <div class="title"> <%- blog.title %></div>
         <div class="sub-title"><%- blog.subTitle %></div>
         <div class="description">
             <%- blog.description %> </div>
