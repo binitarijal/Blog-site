@@ -14,5 +14,34 @@ exports.registerPage=(req,res)=>{
         email:email,
         password:bcrypt.hashSync(password,12)
     })
-    res.send("user registered successfully")
+    res.redirect("/login")
 }
+
+exports.renderLoginForm=(req,res)=>{
+res.render("login")
+}
+exports.loginUser=async(req,res)=>{
+    const {email,password}=req.body
+    if(!email || !password){
+        return res.send("plz provide details") 
+        }  
+      const user= await  users.findAll({
+            where:{
+                email:email
+            }
+        })
+        if(user.length==0){
+            res.send("no user exist with that email")
+        }
+        else{
+            //tyo email ko user cha
+           const isMatched=  bcrypt.compareSync(password,user[0].password)
+        if(isMatched){
+            res.send("login success")
+        }
+        else{
+            res.send("password not matched")
+        }
+        
+        }
+    }
