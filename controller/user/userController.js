@@ -2,6 +2,8 @@ const { users } = require("../../model/index");
 //console.log("user model: ",users)
 
 const bcrypt=require("bcryptjs")
+
+const jwt=require("jsonwebtoken")
 exports.registerPage=(req,res)=>{
     res.render("register")
  }
@@ -37,11 +39,15 @@ exports.loginUser=async(req,res)=>{
             //tyo email ko user cha
            const isMatched=  bcrypt.compareSync(password,user[0].password)
         if(isMatched){
-            res.send("login success")
+            var token=jwt.sign({id:user[0].id},'dontsharethiskey',{
+                expiresIn:"1d"
+               
+            })
+            console.log(token)
         }
         else{
             res.send("password not matched")
         }
         
         }
-    }
+    } 
