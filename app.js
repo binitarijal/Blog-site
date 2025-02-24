@@ -1,7 +1,7 @@
 const express=require("express")
 require("dotenv").config()
  const app=express()
-
+const cookieParser=require("cookie-parser")
  const blogRoute=require("./routes/blogRoute")
  const userRoute= require("./routes/userRoute")
 
@@ -16,6 +16,7 @@ app.use(express.static("./uploads/"))
 app.use(express.static(__dirname +'/public/style'))
 app.use("",blogRoute)
 app.use("",userRoute)
+app.use(cookieParser())
 
 
 const PORT=2000;

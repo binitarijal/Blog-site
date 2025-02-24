@@ -39,12 +39,14 @@ exports.loginUser=async(req,res)=>{
             //tyo email ko user cha
            const isMatched=  bcrypt.compareSync(password,user[0].password)
         if(isMatched){
-            var token=jwt.sign({id:user[0].id},'dontsharethiskey',{
+            var token=jwt.sign({id:user[0].id},process.env.secretKey,{
                 expiresIn:"1d"
                
             })
-            console.log(token)
+            res.cookie('token',token)
+            res.send(console.log("login success"))
         }
+
         else{
             res.send("password not matched")
         }
