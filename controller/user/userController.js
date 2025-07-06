@@ -44,7 +44,7 @@ exports.loginUser=async(req,res)=>{
                
             })
             res.cookie('token',token)
-            res.send(console.log("login success"))
+            res.redirect("/") //redirect to home page
         }
 
         else{

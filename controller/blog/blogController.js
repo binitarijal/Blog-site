@@ -1,8 +1,12 @@
-const {blogs} =require("../../model/index")
+const {blogs, users} =require("../../model/index")
 exports.homeRender=async(req,res)=>{
     //blogs table bata row nikalnu paryo ani home page lai pass garney
-    const blogsTableBlog=await blogs.findAll()
-    console.log(blogsTableBlog)
+    const blogsTableBlog=await blogs.findAll({
+        include : {
+            model : users
+        }
+    })
+    //console.log(blogsTableBlog)
     res.render("home",{blogs:blogsTableBlog})
 }
 
@@ -15,9 +19,10 @@ exports.about =(req,res)=>{
 }
 
 exports.addBlog=async(req,res)=>{
-    console.log(process.env.name)
-    console.log(req.body)
-    console.log(req.file)
+    //console.log(process.env.name)
+   // console.log(req.body)
+   // console.log(req.file)
+   const{userId}=req.userId
 
     const {title,subTitle,description}=req.body
     if(!title || !subTitle || !description){
@@ -25,13 +30,15 @@ exports.addBlog=async(req,res)=>{
     }
   // console.log(title,subTitle,description)
     //inserting into blog
-
+console.log("before blog added")
    await blogs.create({
         title:title,
         subTitle:subTitle,
         description:description,
-        image:process.env.backendUrl + req.file.filename
+        image:process.env.backendUrl + req.file.filename,
+        userId:userId
     })
+    console.log("blog added")
     res.redirect("/")
 }
 
