@@ -2,6 +2,9 @@ const express=require("express")
 require("dotenv").config()
  const app=express()
 const cookieParser=require("cookie-parser")
+
+
+
  const blogRoute=require("./routes/blogRoute")
  const userRoute= require("./routes/userRoute")
 
@@ -24,7 +27,7 @@ app.use("/",userRoute)
 
 
 
-const PORT=3002;
-app.listen(PORT,()=>{
-    console.log(`Node js has started at port ${PORT}`)
+
+app.listen(process.env.PORT || 3002,()=>{
+    console.log(`Node js has started at port ${process.env.PORT || 3002}`)
 })
